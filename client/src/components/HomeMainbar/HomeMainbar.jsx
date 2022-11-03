@@ -2,6 +2,7 @@ import React from 'react'
 import './HomeMainbar.css'
 import QuestionsList from './QuestionsList'
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 
 const HomeMainbar = () => {
@@ -18,58 +19,60 @@ const HomeMainbar = () => {
     }
   }
 
-  var questionsList = [{
-    _id: '1',
-    upVote: 3,
-    downVote: 2,
-    noOfAnswers: 2,
-    QuestionTitle: 'What is function?',
-    QuestionBody: 'It meant to be',
-    questionTags: ['java', 'nodejs', 'mongodb', 'reactjs'],
-    userPosted: 'mano',
-    userId: 1,
-    time: 'Jan 1',
-    answer: [{
-      answerBody: "Answer",
-      userAnswered: "kumar",
-      answeredOn: "jan 2",
-      userId: 2
-    }]
-  }, {
-    _id: '2',
-    upVote: 0,
-    downVote: 2,
-    noOfAnswers: 2,
-    QuestionTitle: 'What is function?',
-    QuestionBody: 'It meant to be',
-    questionTags: ['java', 'nodejs', 'mongodb', 'reactjs'],
-    userPosted: 'mano',
-    userId: 1,
-    time: 'Jan 1',
-    answer: [{
-      answerBody: "Answer",
-      userAnswered: "kumar",
-      answeredOn: "jan 2",
-      userId: 2
-    }]
-  }, {
-    _id: '3',
-    upVote: 1,
-    downVote: 2,
-    noOfAnswers: 2,
-    QuestionTitle: 'What is function?',
-    QuestionBody: 'It meant to be',
-    questionTags: ['java', 'nodejs', 'mongodb', 'reactjs'],
-    userPosted: 'mano',
-    userId: 1,
-    time: 'Jan 1',
-    answer: [{
-      answerBody: "Answer",
-      userAnswered: "kumar",
-      answeredOn: "jan 2",
-      userId: 2
-    }]
-  }]
+  const questionsList=useSelector(state=>state.questionsReducer)
+  console.log(questionsList)
+  // var questionsList = [{
+  //   _id: '1',
+  //   upVote: 3,
+  //   downVote: 2,
+  //   noOfAnswers: 2,
+  //   QuestionTitle: 'What is function?',
+  //   QuestionBody: 'It meant to be',
+  //   questionTags: ['java', 'nodejs', 'mongodb'],
+  //   userPosted: 'anu',
+  //   userId: 1,
+  //   time: 'Jan 10',
+  //   answer: [{
+  //     answerBody: "Answer",
+  //     userAnswered: "kumar",
+  //     answeredOn: "jan 2",
+  //     userId: 2
+  //   }]
+  // }, {
+  //   _id: '2',
+  //   upVote: 0,
+  //   downVote: 2,
+  //   noOfAnswers: 2,
+  //   QuestionTitle: 'How to start ML?',
+  //   QuestionBody: 'Machine Learning',
+  //   questionTags: ['java', 'nodejs', 'reactjs'],
+  //   userPosted: 'janhvi',
+  //   userId: 1,
+  //   time: 'Nov 1',
+  //   answer: [{
+  //     answerBody: "Answer",
+  //     userAnswered: "kumar",
+  //     answeredOn: "jan 2",
+  //     userId: 2
+  //   }]
+  // }, {
+  //   _id: '3',
+  //   upVote: 1,
+  //   downVote: 2,
+  //   noOfAnswers: 2,
+  //   QuestionTitle: 'What is MERN stack?',
+  //   QuestionBody: 'It includes reactjs',
+  //   questionTags: ['java', 'javascript', 'reactjs'],
+  //   userPosted: 'prans',
+  //   userId: 1,
+  //   time: 'Dec 2',
+  //   answer: [{
+  //     answerBody: "Answer",
+  //     userAnswered: "kumar",
+  //     answeredOn: "jan 10",
+  //     userId: 2
+  //   }]
+  // }]
 
   const location = useLocation();
   return (
@@ -82,11 +85,11 @@ const HomeMainbar = () => {
       </div>
       <div>
         {
-          questionsList == null ?
+          questionsList.data === null ?
             <h1>Loading</h1> :
             <>
-              <p>{questionsList.length} questions</p>
-              <QuestionsList questionsList={questionsList} />
+              <p>{questionsList.data.length} questions</p>
+              <QuestionsList questionsList={questionsList.data} />
             </>
         }
       </div>

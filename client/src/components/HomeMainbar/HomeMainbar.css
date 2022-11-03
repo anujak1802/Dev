@@ -18,18 +18,18 @@
   .main-bar-header .ask-btn {
     text-decoration: none;
     border-radius: 2px;
-    background-color: #efb8c7;
+    background-color: #b8c5ef;
     color: black;
     padding: 10px 15px;
     transition: 0.2s;
-    border: 1px solid #df7390;
+    border: 1px solid #7395df;
     font-weight: 700;
     font-size: 14px;
     cursor: pointer;
   }
   
   .main-bar-header .ask-btn:hover {
-    background-color: #df7390;
+    background-color: #7383df;
   }
   
   .display-question-container {
@@ -39,8 +39,8 @@
     align-items: center;
     border-radius: 10px;
     margin-bottom: 4px;
-    box-shadow: 1px 1px 10px rgba(243, 198, 218, 0.877),
-      -1px -1px 10px rgba(243, 198, 218, 0.877);
+    box-shadow: 1px 1px 10px rgba(198, 220, 243, 0.877),
+      -1px -1px 10px rgba(198, 217, 243, 0.877);
   }
   
   .display-question-container .display-votes-ans {

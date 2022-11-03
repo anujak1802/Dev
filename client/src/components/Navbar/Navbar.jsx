@@ -12,7 +12,7 @@ const Navbar = () => {
     var User = useSelector((state)=>(state.currentUserReducer));
     useEffect(()=>{
         dispatch(setCurrentUser(JSON.parse(localStorage.getItem('Profile'))))
-    })
+    },[dispatch])
     return (
         <nav className='main-nav'>
             <div className="navbar">
@@ -31,7 +31,7 @@ const Navbar = () => {
                 {User == null ?
                     <Link to='/Auth' className='nav-item nav-link'>Log In</Link> :
                     <>
-                        <Avatar backgroundColor='blue' px='10px' py='7px' borderRadius='50%'><Link to='/User' style={{ color: 'white', textDecoration: 'none' }}>M</Link></Avatar>
+                        <Avatar backgroundColor='blue' px='10px' py='7px' borderRadius='50%'><Link to='/User' style={{ color: 'white', textDecoration: 'none' }}>{User.result.name.charAt(0).toUpperCase()}</Link></Avatar>
                         <button className='nav-item nav-link'>LogOut</button>
                     </>
                 }
