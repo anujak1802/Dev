@@ -14,7 +14,7 @@ app.use(express.urlencoded({ limit: "30mb", extended: true }))
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.send("This is TeachMeHow website")
+    res.send("This is QueryTalk website")
 })
 
 app.use('/users', userRoutes)
@@ -23,8 +23,8 @@ app.use('/answer', answerRoutes)
 
 const PORT = process.env.PORT || 5000
 
-const CONNECTION_URL = "mongodb+srv://anujak1809:nayanakokate19@query-talk.cpb5cep.mongodb.net/?retryWrites=true&w=majority"
+const DATABASE_URL = process.env.CONNECTION_URL
 
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(PORT, () => { console.log(`server is running on port ${PORT}`) }))
     .catch((err) => console.log(err.message))
